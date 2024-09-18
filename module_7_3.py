@@ -17,7 +17,8 @@ class WordsFinder:
 					all_words[file1_.name] = line.split()
 				all_words[file1_.name] = s
 		return all_words
-
+	# find(self, word) - метод, где word - искомое слово. Возвращает словарь, где ключ - название файла,
+	# значение - позиция первого такого слова в списке слов этого файла.
 	def find(self, word):
 		self.word = word.lower()
 		dict_ = {}
@@ -25,7 +26,8 @@ class WordsFinder:
 
 		for key, value in data.items():
 			if self.word in value:
-				dict_[key] = value.index(self.word)
+				print(value)
+				dict_[key] = value.index(self.word)+1
 		return (dict_)
 
 	def count(self, word):
@@ -43,6 +45,6 @@ class WordsFinder:
 
 
 finder2 = WordsFinder('test.txt')
-print(finder2.get_all_words()) # Все слова
-print(finder2.find('TEXT')) # 3 слово по счёту
+# print(finder2.get_all_words()) # Все слова
+# print(finder2.find('TEXT')) # 3 слово по счёту
 print(finder2.count('teXT')) # 4 слова teXT в тексте всего
